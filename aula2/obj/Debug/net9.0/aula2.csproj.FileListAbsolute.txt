@@ -1,0 +1,14 @@
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\bin\Debug\net9.0\aula2.exe
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\bin\Debug\net9.0\aula2.deps.json
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\bin\Debug\net9.0\aula2.runtimeconfig.json
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\bin\Debug\net9.0\aula2.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\bin\Debug\net9.0\aula2.pdb
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\aula2.GeneratedMSBuildEditorConfig.editorconfig
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\aula2.AssemblyInfoInputs.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\aula2.AssemblyInfo.cs
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\aula2.csproj.CoreCompileInputs.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\aula2.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\refint\aula2.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\aula2.pdb
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\aula2.genruntimeconfig.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\5 - Aprendizes\2 - Desenvolvimento de Sistemas\5 - Soluções Digitais 2024\Nicolle Siqueira\19 - c#\aula2\obj\Debug\net9.0\ref\aula2.dll

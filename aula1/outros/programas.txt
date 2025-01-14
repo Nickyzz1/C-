@@ -1,0 +1,11 @@
+- maven
+- scene builder
+- react
+- memory alocation
+- sort algoritms
+- compilation
+- logisim computer
+- http 
+- excel VBA
+- solid
+- 

@@ -1,0 +1,39 @@
+visual studeo
+VSCode
+rider(jetbrains)
+
+criar arquivo em c# : dotnet new console
+
+maven : gerenciador de pacotes do java
+
+- compilação java
+    executar javac program.java
+    java program
+    usa javac para compilar
+    bytecode .class
+    runtime é o jvm
+- compilação C#
+    - dotnet run
+    - usa csc
+    - linguagem iuntermediária .dll ou .exe
+    -clr(Common Language Runtime) usa principalmente jit
+
+clr: É a máquina virtual da plataforma .NET da Microsoft que executa o código .NET, incluindo o C#
+Um código escrito em .NET é um código compilado em Common Intermediate Language (CIL) e armazenado em um arquivo com extensão .dll ou .exe
+
+
+.netproj : config de bibliotecas
+
+oq bin/debug quer dizer?
+oq é um nameSpace;
+cd .bin\debug\net.9\net.dll --> usa-se quando precis ausar em porodução, ele nn vai buildar(sem fazer debug) toda vez que rodar, é mais rápido se o código estiver pronto
+diferença de dll e exe?
+
+dotnet new gitignore -- cria tds os igores que provavelmente precisaremos
+
+protected - só filhos podem usar
+private - ninguém pode usar
+public - todo muindo pode usar
+
+'' para char
+"" string

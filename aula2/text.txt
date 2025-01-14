@@ -1,0 +1,7 @@
+classe stática que guarda as configurações do jogo(valor inicial de moedas, pode ter um save da quantidade máquinas)
+clasee máquina com 3 máquinas diferentes (e,m vez de dar uma moeda a cada clique dá 5 moedas a cada clique)
+class menu (da configuração) --> pode abrir a loja, da loja pode comprar uma máquina, fazer upgrade na máquina que temos
+
+menu principal
+meu da loja
+leitor dos cliques
