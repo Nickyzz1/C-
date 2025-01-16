@@ -2,46 +2,46 @@
   "version": 3,
   "targets": {
     "net9.0": {
-      "database/1.0.0": {
+      "DataBase/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "compile": {
-          "bin/placeholder/database.dll": {}
+          "bin/placeholder/DataBase.dll": {}
         },
         "runtime": {
-          "bin/placeholder/database.dll": {}
+          "bin/placeholder/DataBase.dll": {}
         }
       },
-      "model/1.0.0": {
+      "Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
-          "database": "1.0.0"
+          "DataBase": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/model.dll": {}
+          "bin/placeholder/Model.dll": {}
         },
         "runtime": {
-          "bin/placeholder/model.dll": {}
+          "bin/placeholder/Model.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "database/1.0.0": {
+    "DataBase/1.0.0": {
       "type": "project",
-      "path": "../database/database.csproj",
-      "msbuildProject": "../database/database.csproj"
+      "path": "../DataBase/DataBase.csproj",
+      "msbuildProject": "../DataBase/DataBase.csproj"
     },
-    "model/1.0.0": {
+    "Model/1.0.0": {
       "type": "project",
-      "path": "../model/model.csproj",
-      "msbuildProject": "../model/model.csproj"
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
-      "model >= 1.0.0"
+      "Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -50,11 +50,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\front\\Front.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\front\\Front.csproj",
       "projectName": "Front",
-      "projectPath": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\front\\Front.csproj",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\front\\Front.csproj",
       "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-      "outputPath": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\front\\obj\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\front\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -69,8 +69,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\model\\model.csproj": {
-              "projectPath": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\model\\model.csproj"
+            "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\Model\\Model.csproj"
             }
           }
         }
