@@ -28,16 +28,14 @@ DB<Disciplines> csvDisciplina = DB<Disciplines>.Custom;
 DB<IClass> csvTurma = DB<IClass>.Custom;
 DB<Professor> csvProfessor = DB<Professor>.Custom;
 
-// Pegue os dados dos repositórios e salve no arquivo CSV
 List<Aluno> alunosData = alunoRepo.All;
 List<Disciplines> disciplinesData = disciplineRepo.All;
 List<IClass> classData = classRepo.All;
 List<Professor> professorData = profRepo.All;
 
-// Se os arquivos estiverem vazios, inicialize-os com listas vazias
+// Se os arquivos estiverem vazios inicialize-os com listas vazias
 try
 {
-    // Operações de salvar no arquivo
     csvAluno.save(alunosData);
     csvDisciplina.save(disciplinesData);
     csvTurma.save(classData);
@@ -55,26 +53,26 @@ csvProfessor.save(professorData);
 
 
 
-void SaveAluno(Aluno aluno)
-{
-    string filePath = "csvAlunoCustomAluno.csv";  // Certifique-se de adicionar a extensão ".csv" ao nome do arquivo
+// void SaveAluno(Aluno aluno)
+// {
+//     string filePath = "csvAlunoCustomAluno.csv";  // Certifique-se de adicionar a extensão ".csv" ao nome do arquivo
 
-    // Verifique se o arquivo já existe
-    bool fileExists = File.Exists(filePath);
+//     // Verifique se o arquivo já existe
+//     bool fileExists = File.Exists(filePath);
 
-    // Se o arquivo não existe, criamos um novo com cabeçalho
-    using (StreamWriter sw = new StreamWriter(filePath, true))  // 'true' indica que vamos adicionar no arquivo
-    {
-        // Se o arquivo não existe, escreva o cabeçalho
-        if (!fileExists)
-        {
-            sw.WriteLine("id,Nome,Idade");  // Cabeçalho, apenas no primeiro uso
-        }
+//     // Se o arquivo não existe, criamos um novo com cabeçalho
+//     using (StreamWriter sw = new StreamWriter(filePath, true))  // 'true' indica que vamos adicionar no arquivo
+//     {
+//         // Se o arquivo não existe, escreva o cabeçalho
+//         if (!fileExists)
+//         {
+//             sw.WriteLine("id,Nome,Idade");  // Cabeçalho, apenas no primeiro uso
+//         }
 
-        // Escrever os dados do aluno no arquivo CSV
-        sw.WriteLine($"{aluno.id},{aluno.Nome},{aluno.Idade}");
-    }
-}
+//         // Escrever os dados do aluno no arquivo CSV
+//         sw.WriteLine($"{aluno.id},{aluno.Nome},{aluno.Idade}");
+//     }
+// }
 
 
 while (true)
