@@ -51,8 +51,6 @@ csvDisciplina.save(disciplinesData);
 csvTurma.save(classData);
 csvProfessor.save(professorData);
 
-
-
 // void SaveAluno(Aluno aluno)
 // {
 //     string filePath = "csvAlunoCustomAluno.csv";  // Certifique-se de adicionar a extensão ".csv" ao nome do arquivo
@@ -113,6 +111,7 @@ while (true)
                 WriteLine("Insira a formacao do p:");
                 p.Formacao = ReadLine();
                 profRepo.Add(p);
+                DB<Professor>.Custom.save(professorData);
                 break;
 
             // ADICIONANDO ALUNO ==================================================================
@@ -137,7 +136,8 @@ while (true)
             case 3:
 
                 Clear();
-                var profs = profRepo.All;
+                var profs = DB<Professor>.Custom.All;
+                WriteLine("\n============");
                 foreach (var prof in profs)
                 {
                     WriteLine($""" 
@@ -152,13 +152,14 @@ while (true)
 
                 Clear();
                 var alunos = DB<Aluno>.Custom.All;
-                // foreach (var student in alunos)
-                // {
-                //     WriteLine($"""
-                //         {student.Nome} - {student.Idade}
-                //         ---------------------------------
-                //         """);
-                // }
+                WriteLine("\n=============");
+                foreach (var student in alunos)
+                {
+                    WriteLine($"""
+                        {student.Nome} - {student.Idade}
+                        ---------------------------------
+                        """);
+                }
                 break;
 
             // TURMAS ==================================================================
@@ -169,110 +170,117 @@ while (true)
 
                 switch (op)
                 {
-                    // CRIANDO TURMA =============================================
-                    case 1:
+                // CRIANDO TURMA =============================================
+                case 1:
 
-                        Clear();
+                    Clear();
+                    IClass c = new()
+                    {
+                        Students = Array.Empty<string>() // Inicializa a lista de alunos vazia
+                    };
 
-                        IClass c = new();
+                    WriteLine("Digite o nome da turma:\n--");
+                    c.Name = ReadLine();
+                    WriteLine("Digite a quantidade de alunos:\n--");
+                    c.Quant = int.Parse(ReadLine());
+                    classRepo.Add(c);
+                    DB<IClass>.Custom.save(classRepo.All);
+                    break;
 
-                        WriteLine("Digite o nome da turma:\n--");
-                        c.Name = ReadLine();
-                        WriteLine("Digite a quantidade de alunos:\n--");
-                        int quant = int.Parse(ReadLine());
-                        c.Quant = quant;
-                        classRepo.Add(c);
-                        break;
+                // VER TURMA =============================================
+                case 2:
+                    Clear();
+                    var classes = DB<IClass>.Custom.All;
 
-                    // VER TURMA =============================================
-                    case 2:
+                    // if (classes == null || classes.Count == 0)
+                    // {
+                    //     WriteLine("Nenhuma turma cadastrada.");
+                    //     break;
+                    // }
 
-                        Clear();
-                        var classes = classRepo.All;
-                        
-                        
-                        foreach (var i in classes)
+                    foreach (var i in classes)
+                    {
+                        // WriteLine($""" 
+                        // {i.Name} - {i.Quant}
+                        // ---------------------------------
+                        // """);
+
+                        // WriteLine("ALUNOS:");
+
+                        // if (i.Students != null) {
+                        //     WriteLine($"DEBUG: Students raw data - {string.Join(", ", i.Students)}");
+                        // }
+
+
+                        // if (i.Students != null && i.Students.Length > 0)
+                        // {
+                        //     // Exibir cada aluno na lista
+                        //     foreach (var studentName in i.Students)
+                        //     {
+                        //         WriteLine($"- {studentName}");
+                        //     }
+                        // }
+                        // else
+                        // {
+                        //     WriteLine("Nenhum aluno foi adicionado a esta turma ainda.");
+                        // }
+
+                        // // Linha separadora para a próxima turma
+                        // WriteLine(new string('-', 40));
+                    }
+                    break;
+
+            
+                // ATUALIZANDO TURMA =============================================
+                case 3:
+                    WriteLine("ainda não existe : (");
+                    break;
+                // ADICIONANDO ALUNOS A TURMA =============================================
+                case 4:
+                    Clear();
+                    var allTurmas = DB<IClass>.Custom.All;
+                    var allAlunos = DB<Aluno>.Custom.All;
+
+                    WriteLine("Digite o nome da turma:\n--");
+                    var turmaChoose = ReadLine();
+
+                    var turma = allTurmas.FirstOrDefault(t => t.Name.Equals(turmaChoose, StringComparison.OrdinalIgnoreCase));
+                    if (turma != null)
+                    {
+                        WriteLine("Adicione alunos à turma\n\nALUNOS DISPONÍVEIS:\n");
+
+                        foreach (var student in allAlunos)
                         {
-                            WriteLine($""" 
-                            {i.Name} - {i.Quant}
+                            WriteLine($"""
+                            {student.Nome} - {student.Idade}
                             ---------------------------------
                             """);
+                        }
 
-                            WriteLine($""" 
-                            ALUNOS:
-                            """);
+                        var studentsClass = turma.Students?.ToList() ?? new List<string>();
 
-                            if (i.Students != null && i.Students.Length > 0)
+                        for (int i = 0; i < turma.Quant; i++)
+                        {
+                            WriteLine($"Digite o nome do aluno ou S para sair ({i + 1}/{turma.Quant}):\n--");
+                            var newStudent = ReadLine();
+
+                            if (newStudent == "S") break;
+
+                            var matchedStudent = allAlunos.FirstOrDefault(s => s.Nome.Equals(newStudent, StringComparison.OrdinalIgnoreCase));
+                            if (matchedStudent != null)
                             {
-                                foreach (var studentName in i.Students)
-                                {
-                                    WriteLine($"- {studentName}");
-                                }
+                                studentsClass.Add(newStudent);
+                                WriteLine($"Aluno {newStudent} adicionado com sucesso!");
                             }
                             else
                             {
-                                WriteLine("Nenhum aluno foi adicionado a esta turma ainda.");
+                                WriteLine($"Aluno {newStudent} não encontrado. Tente novamente.");
+                                i--;
                             }
                         }
-                        break;
-                    // ATUALIZANDO TURMA =============================================
-                    case 3:
-                        WriteLine("ainda não existe : (");
-                        break;
-                    // ADICIONANDO ALUNOS A TURMA =============================================
-                    case 4:
 
-                        Clear();
-                        var quantAllStudents = csvAluno.All.Count;
-                        var allTurmas = classRepo.All;
-                        var allAlunos = csvAluno.All;
-
-                        WriteLine("Digite o nome da turma:\n--");
-                        var turmaChoose = ReadLine();
-
-                        // Procurar a turma selecionada
-                        var turma = allTurmas.FirstOrDefault(t => t.Name.Equals(turmaChoose, StringComparison.OrdinalIgnoreCase));
-
-                        if (turma != null)
-                        {
-                            WriteLine("Adicione alunos à turma\n\nALUNOS DISPONÍVEIS:\n");
-
-                            // Exibir lista de alunos
-                            foreach (var student in allAlunos)
-                            {
-                                WriteLine($"""
-                                {student.Nome} - {student.Idade}
-                                ---------------------------------
-                                """);
-                            }
-
-                            // Inicializar a lista de alunos na turma
-                            List<string> studentsClass = new List<string>();
-
-                            // Adicionar alunos na turma
-                            for (int i = 0; i < turma.Quant; i++)
-                            {
-                                WriteLine($"Digite o nome do aluno ou S para sair ({i + 1}/{turma.Quant}):\n--");
-                                var newStudent = ReadLine();
-
-                                if(newStudent == "S") // Se a pessoa escolher sair
-                                    break;
-
-                                var matchedStudent = allAlunos.FirstOrDefault(s => s.Nome.Equals(newStudent, StringComparison.OrdinalIgnoreCase));
-                                if (matchedStudent != null)
-                                {
-                                    studentsClass.Add(newStudent);
-                                    WriteLine($"Aluno {newStudent} adicionado com sucesso!");
-                                }
-                                else
-                                {
-                                    WriteLine($"Aluno {newStudent} não encontrado. Tente novamente.");
-                                    i--; // Repetir a entrada para o mesmo índice
-                                }
-                            }
-
-                            // Atualizar a turma com os alunos adicionados
-                            turma.Students = studentsClass.ToArray();
+                        turma.Students = studentsClass.ToArray();
+                        DB<IClass>.Custom.save(allTurmas); // Salvar turmas atualizadas
                         }
                         else
                         {
@@ -281,6 +289,7 @@ while (true)
 
                         WriteLine("\nAlunos adicionados à turma com sucesso!");
                         break;
+
                     // VOLTAR =============================================
                     case 0:
                         break;
@@ -292,9 +301,9 @@ while (true)
             case 6:
                 Clear();
                 WriteLine("1 - Cadastrar disciplina\n2 - Ver disciplinas\n3 - Atualizar disciplinas\n0 - voltar\n--");
-                int turmaOp = int.Parse(ReadLine()); 
+                int disciplineOp = int.Parse(ReadLine()); 
 
-                switch (turmaOp )
+                switch (disciplineOp )
                 {
                     // CRIANDO DISCIPLINA =============================================
                     case 1:
@@ -312,7 +321,7 @@ while (true)
                     // VENDO DISCIPLINAS =============================================
                     case 2:
                         Clear();
-                        var disciplines = disciplineRepo.All;
+                        var disciplines = DB<Disciplines>.Custom.All;;
 
                         foreach (var i in disciplines)
                         {
