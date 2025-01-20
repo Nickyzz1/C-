@@ -36,3 +36,23 @@ endereço : é o ponteiro para o valorpor valor: é o valor
 diferenças:
 
 tipagem
+
+===================================
+
+#overloadable#
+
+linear function {
+    f(x) = x
+}
+
+sum function(9(x), 8(x)) {
+    f(x) = 9(x) + h(x);
+}
+
+function f = 4
+
+f[100] vai retornar 4
+
+const function(double c) {
+    f(x) = c
+}

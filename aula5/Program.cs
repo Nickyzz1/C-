@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using lista;
+﻿using lista;
 
 myList<int> lista = new myList<int>();
 

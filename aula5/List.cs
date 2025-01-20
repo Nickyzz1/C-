@@ -1,7 +1,3 @@
-using System.Diagnostics.Tracing;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using Microsoft.VisualBasic;
 namespace lista;
 
 public class myList<T>(){
@@ -13,7 +9,7 @@ public class myList<T>(){
     public int Count{get;set;} = 1;
 
   
-    public T this[int index] {
+    public T this[int index] { // indexador 
         get { return Array[index];}
         set {Array[index] = value;}
     }
