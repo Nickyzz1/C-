@@ -169,12 +169,20 @@ public static class Enumerator
         return count;
     }
 
-    public static IEnumerator<R> Select<T, R>(this IEnumerable<T> source, Func<T, R> map) { // função que transformna um tipo em outro
-        var it = source.GetEnumerator();
-        while(it.MoveNext()) {
-            yield return map(it.Current);
-        }
+    // public static IEnumerator<R> Select<T, R>(this IEnumerable<T> source, Func<T, R> map) { // função que transformna um tipo em outro
+    //     var it = source.GetEnumerator();
+    //     while(it.MoveNext()) {
+    //         yield return map(it.Current);
+    //     }
+    // }
+
+    public static IEnumerable<R> Select<T, R>(this IEnumerable<T> source, Func<T, R> map) { // função que transforma um tipo em outro
+    var it = source.GetEnumerator();
+    while (it.MoveNext()) {
+        yield return map(it.Current);
     }
+    }
+
 
     public static IEnumerable<T> Where<T>(this IEnumerable<T> source, Func<T, bool> predicate) { // recebe uma lista de t e para cada item de t se a função for verdadeira para o intem retorna o valor
         foreach (var item in source)
