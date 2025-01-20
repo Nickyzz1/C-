@@ -1,0 +1,2 @@
+dentro da pasta database: dotnet add package System.Data.SqlClient
+nn deixar ter mais de um arquivo sln por projero, ddeve estar na raiz e criado na primeria build antes de tudo, nn abrir em vccode separado

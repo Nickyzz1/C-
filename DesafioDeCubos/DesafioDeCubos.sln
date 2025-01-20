@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "database", "database.csproj", "{E8843803-DEB6-6AA0-4669-445F4E60F3A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioDeCubos", "DesafioDeCubos.csproj", "{C17821D0-3313-E3BD-86B4-3E6970BCFD91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,15 +10,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E8843803-DEB6-6AA0-4669-445F4E60F3A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8843803-DEB6-6AA0-4669-445F4E60F3A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8843803-DEB6-6AA0-4669-445F4E60F3A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8843803-DEB6-6AA0-4669-445F4E60F3A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C17821D0-3313-E3BD-86B4-3E6970BCFD91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C17821D0-3313-E3BD-86B4-3E6970BCFD91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C17821D0-3313-E3BD-86B4-3E6970BCFD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C17821D0-3313-E3BD-86B4-3E6970BCFD91}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {366023E2-E66A-40EA-9D44-8B38743C7175}
+		SolutionGuid = {931FAD8B-7E03-4424-B909-6F08D5620CB5}
 	EndGlobalSection
 EndGlobal

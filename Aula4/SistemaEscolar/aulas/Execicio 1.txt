@@ -1,0 +1,3 @@
+Complemente a implementação do Exemplo 3 adicionando a adição do professor e tudo que for necessário para turmas e disciplinas.
+
+Após, implemente um Repository que utilize o nosso banco de dados (DB<T>) e teste no Front

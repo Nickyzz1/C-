@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "s:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\DataBase\\DataBase.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\DataBase\\DataBase.csproj": {}
   },
   "projects": {
-    "s:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\DataBase\\DataBase.csproj": {
+    "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\DataBase\\DataBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "s:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\DataBase\\DataBase.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\DataBase\\DataBase.csproj",
         "projectName": "DataBase",
-        "projectPath": "s:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\DataBase\\DataBase.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\DataBase\\DataBase.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "s:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula3\\DataBase\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula3\\DataBase\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config"

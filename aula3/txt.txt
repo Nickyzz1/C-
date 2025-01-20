@@ -1,0 +1,37 @@
+pq fez um construtor privado?
+diferença entre classe abstrata e interface:
+
+Uma classe pode herdar de apenas uma classe abstrata. 
+Uma classe pode implementar múltiplas interfaces.
+
+
+atualizando alunoi
+
+// ATUALIZANDO ALUNO
+case 2:
+    Clear();
+    WriteLine("Digite o ID do aluno para atualizar:");
+    int alunoId = int.Parse(ReadLine());
+    
+    // Encontrar o aluno pelo ID
+    var alunoExistente = csvAluno.All.FirstOrDefault(a => a.Id == alunoId);
+    
+    if (alunoExistente != null)
+    {
+        // Atualizar os dados do aluno
+        WriteLine($"Aluno encontrado: {alunoExistente.Nome} - {alunoExistente.Idade}");
+
+        WriteLine("Digite o novo nome do aluno:");
+        alunoExistente.Nome = ReadLine();
+        WriteLine("Digite a nova idade do aluno:");
+        alunoExistente.Idade = int.Parse(ReadLine());
+
+        // Salvar os dados atualizados
+        csvAluno.save(csvAluno.All);  // Não sobrescreve, apenas atualiza os dados existentes
+        WriteLine("Aluno atualizado com sucesso!");
+    }
+    else
+    {
+        WriteLine("Aluno não encontrado!");
+    }
+    break;

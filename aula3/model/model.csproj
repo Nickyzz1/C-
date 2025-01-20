@@ -2,6 +2,7 @@
 
   <ItemGroup>
   <!-- referencia ao banco -->
+  <!-- nome da pasta e do arquivo -->
     <ProjectReference Include="..\DataBase\DataBase.csproj" /> 
   </ItemGroup>
 

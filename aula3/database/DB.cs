@@ -7,12 +7,12 @@ using System.Runtime.InteropServices.Marshalling;
 using DataBase.Exceptions;
 
 namespace DataBase;
-public class DB<T> where T : DataBaseObject, new() { // definiu o tipo genérico limitado a ser um dbo, quando criar uma mdoel precisa ser dese tipo
+public class DB<T> where T : DataBaseObject, new() { // definiu o tipo genérico limitado a ser um dbo, quando criar uma mdoel precisa ser dese tipo, ou seja, é como uma interface, as classes que hewrdarem precisma implementar os métodos
     private string basePath; // onde vai salvar o arquivo
     private DB(string basePath) => this.basePath = basePath; // construtor privado que vai construir com base no path inserido, tem ou custom, ou app ou file, sempre receber um db de t
 
     public string DBPath { get { // personalizando o get
-        var filename = typeof(T).Name;
+        var filename = typeof(T).Name; // databaseObject?
         var path = this.basePath + filename + ".csv" ; // extenssão do arquivo a retornar
         return path;
     }} // vai pegar o local do arquicvo a adc ao nome da entidade
@@ -59,6 +59,7 @@ public class DB<T> where T : DataBaseObject, new() { // definiu o tipo genérico
                 writer.WriteLine(line); //ele vai escrever a linha
 
             }
+
         }
         catch 
         {
@@ -67,6 +68,7 @@ public class DB<T> where T : DataBaseObject, new() { // definiu o tipo genérico
         } finally {
             writer?.Close();
         }
+
         return sucess;
     }
 
@@ -96,7 +98,7 @@ public class DB<T> where T : DataBaseObject, new() { // definiu o tipo genérico
             }
             finally {}
 
-            return All;
+            return all;
         }
         
     }

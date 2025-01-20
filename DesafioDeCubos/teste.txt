@@ -1,0 +1,86 @@
+
+var red = 1;
+var green = 2;
+var blue = 3;
+var yellow = 4;
+// cima, meio, baixo, direita, esquerda, atras
+var blockA = new int[6] { red, yellow, blue, green, yellow, yellow };  // Valores de blockA
+var blockC = new int[6] { red, yellow, yellow, green, red, blue };  // Valores de blockC
+
+// Função para criar uma matriz 6x6 zerada
+int[,] CreateNewMatrix()
+{
+    var matrix = new int[6, 6];
+    for (int i = 0; i < 6; i++)
+        for (int j = 0; j < 6; j++)
+            matrix[i, j] = 0;
+
+    return matrix;
+}
+
+// Função para exibir uma matriz
+void PrintMatrix(int[,] matrix)
+{
+    for (int i = 0; i < 6; i++)
+    {
+        for (int j = 0; j < 6; j++)
+            Console.Write(matrix[i, j] + "\t");
+        Console.WriteLine();
+    }
+    Console.WriteLine();
+}
+
+// Função para validar um par específico de linhas
+bool ValidatePair(int a, int c)
+{
+    if (a != c) // Simples validação: os valores devem ser diferentes
+        return true;
+    return false;
+}
+
+// Função principal para gerar combinações válidas
+void GenerateValidMatrices()
+{
+    for (int i = 0; i < blockA.Length; i += 2)
+    {
+        // Linhas consecutivas
+        int line1 = i;
+        int line2 = i + 2;
+
+        // Verifica se line2 está dentro do limite
+        if (line2 >= blockA.Length)
+            break; // Sai do loop, pois não há pares válidos restantes
+
+        // Valores a serem validados
+        int valueA1 = blockA[line1];
+        int valueC1 = blockC[line1];
+        int valueA2 = blockA[line2];
+        int valueC2 = blockC[line2];
+
+        // Conferência
+        Console.WriteLine($"Conferindo linha[{line1}] matriz A: {valueA1} com linha[{line1}] matriz C: {valueC1}");
+        bool isValid1 = ValidatePair(valueA1, valueC1);
+
+        Console.WriteLine($"Conferindo linha[{line2}] matriz A: {valueA2} com linha[{line2}] matriz C: {valueC2}");
+        bool isValid2 = ValidatePair(valueA2, valueC2);
+
+        if (isValid1 && isValid2)
+        {
+            Console.WriteLine("Já que os dois são válidos, a matriz é válida.");
+            var newMatrix = CreateNewMatrix();
+            newMatrix[line1, 0] = valueA1;
+            newMatrix[line1, 2] = valueC1;
+            newMatrix[line2, 0] = valueA2;
+            newMatrix[line2, 2] = valueC2;
+            PrintMatrix(newMatrix);
+        }
+        else
+        {
+            Console.WriteLine("Já que um dos dois é inválido, não printa.");
+            Console.WriteLine();
+        }
+    }
+}
+
+// Executa a função principal
+GenerateValidMatrices();

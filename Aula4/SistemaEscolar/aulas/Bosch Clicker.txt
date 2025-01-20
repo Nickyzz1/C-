@@ -1,0 +1,2 @@
+Com base no jogo Cookie clicker, vamos fazer um bosch clicker, onde é um jogo que você pressiona uma tecla (space) para ganhar dinheiro,
+com base iremos iniciar um jogo onde cada click vale uma moeda, e com determinada quantidade de moeda podemos comprar máquinas que multiplicam as moedas
