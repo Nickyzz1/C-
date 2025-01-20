@@ -1,0 +1,38 @@
+.net tem linguagens: c#, f#, Visual Basic;
+
+dica: desenvolvedor dotnet nn desenvolvedor c#
+dica2: estudar como guarda na memória, o que é mais rápido de acessar na stack, por referebcia ou poor valor é melhor? estude onde é mais eficiente guardar; python é por referencia e cria cópias;
+
+- é uma linguagem orientada a objetos
+
+COMANDOS:
+
+compilar : dotnet build
+compilar e rodar : dotnet run
+gitignore: dotnet new gitignore
+instalar lib: dotnet add package NomeDaLib
+desistalar lib: dotnet remove package NomeDaLib
+
+FATOS:
+
+- nuget : servidor onde publica os pacotes, apenas o site
+- o donet vai no nuget e pega o pacote
+
+Integer java n tem bom suporte a tipos por valor :/
+
+Integer é um ponteiro, ele copia a referencia, tipos por valor vc guarda o valor
+
+    ponteiro:
+    Integer a = 3;
+    Integer b = a;
+
+    valor:
+    int a = 3;
+    int b = a;
+
+diferença de tipo por valor e tipo por referencia:
+endereço : é o ponteiro para o valorpor valor: é o valor
+
+diferenças:
+
+tipagem
