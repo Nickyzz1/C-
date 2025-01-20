@@ -31,3 +31,5 @@ interface cs IEnumerator acessa qualquert coleção
 todas as coleções do c# são inumereables
 
 pegar o iterator para verificar cada um por vez em vez de fazer todos; se pos importantes nbão são todos! se for todos faz isso sempre
+
+delegate = var que recebe uma dunção

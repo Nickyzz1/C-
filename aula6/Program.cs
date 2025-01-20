@@ -1,6 +1,26 @@
 int[] array = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ];
 
 var result = array.FirstOrDefault<int>();
+var resultDois = array.Where(i => i % 2 == 0);
+
+System.Console.Write("Where: ");
+foreach (var item in array.Where(i => i % 2 == 0))
+{
+    System.Console.Write($"{item}, ");
+}
+
+System.Console.WriteLine("");
+
+System.Console.Write("select: ");
+
+foreach (var item in array.Select(i => i * i))
+{
+    System.Console.Write($"{item}, ");
+}
+
+System.Console.WriteLine("");
+
+Func <string, int> funcao = s => int.Parse(s);
 
 Console.WriteLine($"FirstOfDefault: {array.FirstOrDefault<int>()}");
 Console.WriteLine($"LastOrDefault: {array.LastOrDefault<int>()}");
@@ -147,6 +167,22 @@ public static class Enumerator
             count++;
         }
         return count;
+    }
+
+    public static IEnumerator<R> Select<T, R>(this IEnumerable<T> source, Func<T, R> map) { // função que transformna um tipo em outro
+        var it = source.GetEnumerator();
+        while(it.MoveNext()) {
+            yield return map(it.Current);
+        }
+    }
+
+    public static IEnumerable<T> Where<T>(this IEnumerable<T> source, Func<T, bool> predicate) { // recebe uma lista de t e para cada item de t se a função for verdadeira para o intem retorna o valor
+        foreach (var item in source)
+        {
+            if(predicate(item)) {
+                yield return item;
+            }
+        }
     }
 
    
