@@ -1,0 +1,33 @@
+===================================
+
+#overloadable#
+
+linear function {
+    f(x) = x
+}
+
+sum function(9(x), 8(x)) {
+    f(x) = 9(x) + h(x);
+}
+
+function f = 4
+
+f[100] vai retornar 4
+
+const function(double c) {
+    f(x) = c
+}
+
+// representar funções
+// derivada
+cosseno
+seno
+potencia de função
+função dentro de função
+
+=====================================
+iterator -> moveNext() cada vez que chamar vai mudar para o proximo valor, current mostar o atual
+interface cs IEnumerator acessa qualquert coleção 
+todas as coleções do c# são inumereables
+
+pegar o iterator para verificar cada um por vez em vez de fazer todos; se pos importantes nbão são todos! se for todos faz isso sempre
