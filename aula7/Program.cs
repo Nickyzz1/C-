@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using university;
 
 var uni = new Universidade();
@@ -6,13 +7,13 @@ var uni = new Universidade();
 // ===========================================================
 
 var queryDepartamentsDiscipline = 
-from dep in uni.Departamentos
-join discipline in uni.Disciplinas
-on dep.Id equals discipline.DepartamentoId
-select new {
-    Disciplina = discipline.Nome,
-    Departamento = dep.Nome,
-};
+    from dep in uni.Departamentos
+    join discipline in uni.Disciplinas
+    on dep.Id equals discipline.DepartamentoId
+    select new {
+        Disciplina = discipline.Nome,
+        Departamento = dep.Nome,
+    };
 
 var sortData = queryDepartamentsDiscipline.OrderBy(d => d.Departamento);
 var countData = sortData.Count();

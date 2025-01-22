@@ -1,0 +1,30 @@
+// var respostaQuery5 = 
+//     from a in uni.Alunos
+//     from t in uni.Turmas
+//     from p in uni.Professores
+//     where a.Matriculas.Contains(t.Id)
+//     where t.ProfessorId == p.Id // ou um join
+//     group new {a, p} by a.Nome into g
+//     select new{
+//         Aluno = g.Key, // key é o que eu  uso de parametro para agrupar, nesse caso o a.Nome, exemplo abaixo:
+//         Custo = 300 + (
+//             from p in g
+//             join t in uni.Turmas
+//             on p.Id equals t.ProfessorId
+//             from a in uni.Alunos
+//             where a.Matriculas.Contains(t.Id)
+//             select new {p.Id, p.Salario} into profSalario
+//             group profSalario by profSalario.Id into g2
+//             select new {p.Id, p.Salario}
+
+//         )
+//     }
+
+// EXEMPLO
+// group new {a, p} by {a.Nome, P.nome} into g
+// select new{
+//     Aluno = g.Key.Nome, // como a key tem dois valores fazer assim
+//     Custo = 300 + (
+
+//     )
+// }
