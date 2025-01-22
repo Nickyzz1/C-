@@ -58,7 +58,6 @@ var top5Profss = uni.Professores
                 .Any(matriculaId => uni.Turmas // que corresponda a uma turma lecionada pelo professor atual. 
                     .Any(turma => turma.Id == matriculaId && turma.ProfessorId == professor.Id)))
             .Select(aluno => aluno.Nome).Count()
-            
     });
 
 var top5 = top5Profss.OrderByDescending(aluno => aluno.Alunos).Take(5);
@@ -167,7 +166,8 @@ foreach (var turma in query5)
 
 Console.WriteLine();
 
-// ===========================================================
+// ======================= NOVOS ====================================
+// Alunos em Mais de Três Disciplinas. Liste os nomes dos alunos matriculados em mais de três disciplinas, mostrando o nome, idade e a quantidade de disciplinas.
 
 var query6 =
     from a in uni.Alunos
@@ -181,6 +181,7 @@ var query6 =
     select g;
 
 // ===========================================================
+// Professores por Faixa Salarial. Liste os professores cuja faixa salarial está entre R$12.000 e R$15.000, mostrando o nome, idade, departamento e salário.
 
 var query7 = 
     from p in uni.Professores
