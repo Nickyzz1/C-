@@ -1,4 +1,5 @@
-﻿using university;
+﻿using System.Runtime.CompilerServices;
+using university;
 
 var uni = new Universidade();
 
@@ -168,6 +169,152 @@ Console.WriteLine();
 
 // ===========================================================
 
+var query6 =
+    from a in uni.Alunos
+    select new { 
+        Nome = a.Nome, 
+        Idade = a.Idade,
+        QuantidadeDisciplinas = a.Matriculas.Count()
+        } into r
+    group r by r.Nome into g
+    orderby g.Key
+    select g;
+
+// ===========================================================
+
+var query7 = 
+    from p in uni.Professores
+    join t in uni.Turmas
+    on p.Id equals t.ProfessorId
+    join dis in uni.Disciplinas
+    on t.DisciplinaId equals dis.Id
+    join dep in uni.Departamentos
+    on dis.DepartamentoId equals dep.Id
+    select new {
+        Nome = p.Nome,
+        Idade = p.Idade,
+        Salario = p.Salario,
+        Departamento = dep.Nome,
+    };
+
+query7 = query7.Where(s => s.Salario > 12_000 && s.Salario < 15_000);
+
+// ===========================================================
+// Turmas com Professores Específicos. Identifique todas as turmas onde professores do departamento de DAINF estão lecionando. Mostre o ID da turma, a disciplina e o professor.
+
+var query8 = 
+    from p in uni.Professores
+    join t in uni.Turmas
+    on p.Id equals t.ProfessorId
+    join dis in uni.Disciplinas
+    on t.DisciplinaId equals dis.Id
+    join dep in uni.Departamentos
+    on dis.DepartamentoId equals dep.Id
+    select new {
+        Nome = p.Nome,
+        Disciplina = dis.Nome,
+        Turma = t.Id,
+        Departamento = dep.Nome
+    };
+
+query8 = query8.Where(d => d.Departamento == "DAINF");
+
+// ===========================================================
+
+// Professor Mais Jovem Encontre o professor mais jovem em cada departamento e exiba o nome, departamento e idade.
+
+var query9 = 
+    from p in uni.Professores
+    join t in uni.Turmas
+    on p.Id equals t.ProfessorId
+    join dis in uni.Disciplinas
+    on t.DisciplinaId equals dis.Id
+    join dep in uni.Departamentos
+    on dis.DepartamentoId equals dep.Id
+    group new {p.Nome, p.Idade, Departamento = dep.Nome} by dep.Nome into g
+    select new {
+        Departamento = g.Key,
+        ProfessorNovo = g.OrderBy(p => p.Idade).First()
+    };
+
+// ===========================================================
+//  Identifique todas as disciplinas que possuem mais de uma turma associada. Mostre o nome da disciplina e a quantidade de turmas.
+
+var query10 = 
+    from t in uni.Turmas
+    join d in uni.Disciplinas
+    on t.DisciplinaId equals d.Id
+    group t by new {d.Id, d.Nome } into g
+    where g.Count() > 1
+    select new {
+        Disciplina = g.Key.Nome,
+        QuantidadeDeTurmas = g.Count()
+    };
+
+// ===========================================================
+
+
+System.Console.WriteLine
+("\n===========================================================");
+Console.WriteLine("Alunos em Mais de Três Disciplinas. Liste os nomes dos alunos matriculados em mais de três disciplinas, mostrando o nome, idade e a quantidade de disciplinas.");
+System.Console.WriteLine();
+
+foreach (var aluno in query6) {
+
+    Console.WriteLine($"Aluno: {aluno.Key} ");
+
+    foreach(var item in aluno) {
+        Console.WriteLine($"Idade: {item.Idade} - Disciplinas: {item.QuantidadeDisciplinas}");
+    }
+}
+// ===========================================================
+
+System.Console.WriteLine
+("\n===========================================================");
+Console.WriteLine("Professores por Faixa Salarial. Liste os professores cuja faixa salarial está entre R$12.000 e R$15.000, mostrando o nome, idade, departamento e salário.");
+System.Console.WriteLine();
+
+foreach (var professor in query7) {
+
+    Console.WriteLine($"Professor: {professor.Nome} - Idade: {professor.Idade} - Salario: {professor.Salario} - Departamento: {professor.Departamento}");
+}
+// ===========================================================
+
+System.Console.WriteLine
+("\n===========================================================");
+Console.WriteLine("Turmas com Professores Específicos. Identifique todas as turmas onde professores do departamento de DAINF estão lecionando. Mostre o ID da turma, a disciplina e o professor.");
+System.Console.WriteLine();
+
+foreach (var professor in query8) {
+
+    Console.WriteLine($"Professor: {professor.Nome} - Turma: {professor.Turma} - Disciplina: {professor.Disciplina} - Departamento: {professor.Departamento}");
+}
+
+// ===========================================================
+
+System.Console.WriteLine
+("\n===========================================================");
+Console.WriteLine("Professor Mais Jovem. Encontre o professor mais jovem em cada departamento e exiba o nome, departamento e idade.");
+System.Console.WriteLine();
+
+foreach (var result in query9)
+{
+    Console.WriteLine($"Departamento: {result.Departamento}, Nome: {result.ProfessorNovo.Nome}, Idade: {result.ProfessorNovo.Idade}");
+}
+
+// ===========================================================
+
+System.Console.WriteLine
+("\n===========================================================");
+Console.WriteLine("Disciplinas com Turmas Repetidas. Identifique todas as disciplinas que possuem mais de uma turma associada. Mostre o nome da disciplina e a quantidade de turmas.");
+System.Console.WriteLine();
+
+foreach (var result in query10)
+{
+    Console.WriteLine($"Disciplina: {result.Disciplina}, Quantidade de Turmas: {result.QuantidadeDeTurmas}");
+}
+
+// ===========================================================
 
 Console.ReadKey(true);
 
