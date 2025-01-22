@@ -1,5 +1,7 @@
 ﻿// Pattern matching
 
+using System.Runtime.CompilerServices;
+
 Object obj = 99;
 if(obj is int number) { // se for inteiro coloque dentro da variável number
     System.Console.WriteLine(number + 1);
@@ -89,6 +91,15 @@ foreach (var inst in instrutors)
         _ => "meio a meio"
     };
 }
+var etsCuritiba = new ETS("Curitiba", instrutors);
 
+foreach (var inst in etsCuritiba?.Instrutorss??[]) // tratamento de erro nulo, se td for nulo retorne a expressão da direita "[]"
+{
+    //nullpointer execpetion é quando ele acha algo nulo e não sabe tratar, exemplo do foreach, se eleachar um elemento na lsita que for n ulo, se a lista for nula, se o .instructor for nulo
+    System.Console.WriteLine(inst?.Nome?? "sem nome"); // vcerifica se td é nulo
+}
+// records e classes sempre em baixo ou da top-level error
 public record Instrutor(string Nome, float Altura);
+public record ETS(string Cidade, Instrutor[] Instrutorss);
+
 
