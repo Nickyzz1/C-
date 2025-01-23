@@ -1,0 +1,2 @@
+await é convertido em=> fetch.then(x=5)
+sistemas operacionais

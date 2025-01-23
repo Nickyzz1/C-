@@ -1,0 +1,2 @@
+quantos programas podem rodar em um core do procesasador ao mesmo tempo
+1 programa por vez mesmo com 2 threds 
