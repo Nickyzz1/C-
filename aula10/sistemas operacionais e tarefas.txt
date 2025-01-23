@@ -1,2 +1,23 @@
-quantos programas podem rodar em um core do procesasador ao mesmo tempo
-1 programa por vez mesmo com 2 threds 
+- quantos programas podem rodar em um core do processador ao mesmo tempo?
+r: 1 programa por vez mesmo com 2 threds 
+Entender o processador faz seus códigos serem mais performáticos
+sleep de threds, qual o jeito mais eficiente?
+lei de moote?
+deaadloock: duas threds nn executaren mais pois uam está esperando a outra
+lei de amdahi > ganho de velociade é proporcional ao tamnho da parte do sistea que vcc vai melhorer e do peso dele
+tempo final = tempoNãoParalizavel + oTempoParalizavel/ quantidadde de cores
+stack overflow => quando vc usa toda a memória disponível
+complexidade ordem de prioridade ordem de n?
+problema do cacheiro viajante
+gaberd collector
+como calcular a eficiencia? os milissegundos e a precisão em tempo e porcentagem?
+rip e poolDtrhreds
+
+random nn é thread safe
+spin lock? o que é? é um while true, tem ordemuma variavel que diz que está bloqueado
+spinLock sl = new spinlock() // problema
+bool blocked = false
+sl.enter (ref blocked) // muda o valor do blocked
+// assim vc sincroniza tds aas threads
+// mutex em grandes é melhor
+// usar lock
