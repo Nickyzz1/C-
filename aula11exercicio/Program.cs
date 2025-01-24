@@ -12,17 +12,15 @@ Type[] myTypeArray = new Type[2];
 myTypeArray.SetValue(typeof(int), 0);
 myTypeArray.SetValue(typeof(int),1);
 
-IEnumerable myPropertyInfo = myType.GetProperties();
+var myPropertyInfo = myType.GetProperties();
 
 foreach (var item in myPropertyInfo)
 {
-    System.Console.WriteLine($"        Nome : {item.Name}\n        Salario : {item.Salario}");
+    if(item.CanRead)
+    System.Console.WriteLine($"        Item : {item.Attributes}\n        ");
 }
 
 System.Console.WriteLine("{");
-
-
-
 
 
 var empresa = new Empresa(

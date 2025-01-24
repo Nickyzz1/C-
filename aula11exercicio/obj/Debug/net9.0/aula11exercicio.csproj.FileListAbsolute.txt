@@ -1,0 +1,15 @@
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\bin\Debug\net9.0\aula11exercicio.exe
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\bin\Debug\net9.0\aula11exercicio.deps.json
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\bin\Debug\net9.0\aula11exercicio.runtimeconfig.json
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\bin\Debug\net9.0\aula11exercicio.dll
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\bin\Debug\net9.0\aula11exercicio.pdb
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\aula11exercicio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\aula11exercicio.AssemblyInfoInputs.cache
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\aula11exercicio.AssemblyInfo.cs
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\aula11exercicio.csproj.CoreCompileInputs.cache
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\aula11exercicio.sourcelink.json
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\aula11exercicio.dll
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\refint\aula11exercicio.dll
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\aula11exercicio.pdb
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\aula11exercicio.genruntimeconfig.cache
+C:\Users\disrct\Desktop\CSharp\aula11exercicio\obj\Debug\net9.0\ref\aula11exercicio.dll
