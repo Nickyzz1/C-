@@ -1,0 +1,167 @@
+=================== INUMEREABLE ======================
+MOVENEXT() -> Ao usar a função MoveNext o iterador avança e a
+função retorna 'true', pois o avanço foi bem sucessido.
+nota: por isso usamos o: while(value.MoveNext( )) ==> enquanto houver próximo
+
+	FATO: Note que ele não permite que você altere os valores
+	do iterador. Nem mesmo volte uma única casa. Apenas avançar, resetar e ler.
+	No C# toda coleção retorna um iterador, pois toda coleção implementa IEnumerable:
+	
+	LINQ COLEÇÕES: É importante comentar que todas as coleções geradas por métodos LINQ são imutáveis. Isso significa que
+	ao executar a função Take, você não modifica a coleção original, mas gera uma nova coleção. Você não
+	está de fato mudando a coleção inicial. Tenha sempre isso em mente. A cada função LINQ você gera uma
+	nova coleção 'virtual' ou não. Evidentemente, se os objetos da coleção forem por referência, alterá-los altera
+	seus valores nas coleções originais.
+
+=================== PROGRAMAÇÃO FUNCIONAL ======================
+
+Na programação funcional a função é tratada como um objeto. Ela pode ser retornada, pode ser mandada como parâmetro e coisas
+desse tipo. Estruturamos o nosso pensamento em chamada de funções alto-nível que trabalham com dados
+imutáveis.
+
+======= DELEGADOS #
+
+- Para fazer progreamaç~çao funcioinal em c# usamos os delegados, Estruturas que são declaradas no
+mesmo nível que classes, structs, enums, interfaces e namespaces:
+
+	using System;
+
+	MeuDelegate f = func;
+
+	f();
+
+	void func() {
+		Console.WriteLine("Olá mundo");
+	}
+	public delegate void MeuDelegateOutro();
+
+
+
+=================== YIELD RETURN ===============================
+
+O yield return é uma palavra-chave em C# usada em métodos iteradores para gerar uma sequência de valores de forma preguiçosa (ou seja, sob demanda). Ele permite que você pause a execução de um método e retome de onde parou, sem perder o estado local. 
+
+=================== OBJETOS ANÔNIMOS ===============================
+
+Um objeto anônimo é um objeto que você pode criar sem uma classe e usá-lo por inferência dos seus
+campos. Basta usar a palavra reservada 'new' seguida de uma espécie de JSON que é uma estrutura nome
+valor. Note que tudo funciona por inferência, não é necessário dizer os tipos dos objetos.
+
+
+	var obj = new { nome = "Pamella", AnoNascimento = 2000 };
+	WriteLine(obj.nome);
+	WriteLine(obj.AnoNascimento);
+
+=================== QUERIES ===============================
+
+	using System;
+	using System.Linq;
+	using System.Collections.Generic;
+
+	string texto = "Tles platos de tligo pala Tles Tligles Tlistes";
+	var query =
+		from c in texto
+		group c by c into g
+		where g.Key != ' '
+		select new {
+		letra = g.Key.ToString().ToUpper(),
+		quantidade = g.Count()
+		} into x
+		orderby x.letra
+		select $"A letra {x.letra} foi escrita {x.quantidade} vezes";
+
+	foreach (var s in query)
+	Console.WriteLine(s);
+
+=================== DEADLOCKS => TAREFA A E B NUNCA EXECUTAM POIS AS DUAS AGAURDAM O MESMO RECURSO PARA FUNCIONAR
+
+=================== DESENVOLVIMENTO PARALELO ===============================
+
+Desenvolvimento paralelo, ou seja, a criação de várias tarefas para a mesma aplicação o que chamamos de Threads.
+
+
+Uma Thread é um código executado em paralelo a aplicação inicial. Em sistemas muilt-core, cada core pode executar uma parte do
+trabalho em um processador diferente. Deadlocks pode ocorrer aqui e é necessário saber trabalhar com
+eles, contudo, ainda sim podemos conseguir um grande speedup (ganho de velocidade) separando o código
+em várias Threads.
+
+NÃO USAR PARA PROCESSOS QUE PRECISAM DO RESULTADO ANTERIOR PARA FUNCIONAR
+
+	É importante perceber que existem processos não paralelizáveis que precisam ser executados
+	sequêncialmente, caso contrário, não seria possível obter o resultado correto. Por exemplo a sequência de
+	Fibonacci, que precisa dos elementos anteriores para que o mesmo funcione. Assim separar o processo em
+	2 seria complicado para não dizer impossível.
+
+THREAD-SAFE: nenhuma perda de dado vai ocorrer
+
+
+	void threadWrongRun() {
+		for (int i = 0; i < M; i++) {
+			Thread thread = new Thread(() => {
+				compute(i);
+			});
+			thread.Start();
+		}
+	}
+
+Ao executar temos o seguinte erro: 'Index
+was outside the bounds of the array.' Porquê disso acontecer é simples: Ao criarmos a variável i e
+passarmos ela dentro da função anonima na Thread estamos fazendo com que essa função capture a
+variável. Isso significa que quando a thread rodar ela usará o valor atual de i no momento da execução. O
+problema é que algumas threads só executarão de fato após o for ser completo. Quando isso acontece i já
+vale N (o que ocasionou na quebra do for) e então todas as threads usam o valor atual de i que é N
+resultando num estouro de vetor dentro da função compute.
+Para resolver isso precisamos fazer uma cópia imutável de i:
+
+
+	void threadWrongRun() {
+		for (int i = 0; i < M; i++) {
+			int j = i; // o j é definido a cada loop
+			Thread thread = new Thread(() => {
+				compute(j);
+			});
+			thread.Start();
+		}
+	}
+
+NOTA : A classe Random não é Thread-Safe, isso significa que
+podemos literalmente quebrar a classe se usarmos ela várias vezes ao mesmo tempo
+
+
+=============== PARALLEL E THREADPOOL COM '''TASK''' ================
+
+Primeiramente o desempenho. Para isso vamos utilizar a classe Parallel que usa um
+ThreadPool, ou seja, reuitliza as threads e considera a quantidade de cores na hora de executá-las:
+
+DICA: usar uma claasse de args para pegar argumnentos, se os mesmos argumentos forem usados em funções diferentes, poq se vc mudar os argumentos
+não precisa mudar tudo!
+
+Em vez de criar uma nova thread sempre que necessário, o thread pool reutiliza threads existentes, melhorando a eficiência e o desempenho.
+
+	 - Gerenciado pelo CLR (Common Language Runtime).
+	 - Reduz a sobrecarga de criação/destruição de threads.
+	 - Controla automaticamente o número de threads (crescendo ou reduzindo conforme necessário, O CLR ajusta o número de threads disponíveis com base no hardware e na 		 carga de trabalho.).
+
+O "Parallel Thread Pool" é um termo geralmente associado à utilização de thread pools em conjunto com operações paralelas. A biblioteca Parallel e as tarefas (Task) usam o ThreadPool por padrão para executar operações simultâneas.
+
+#########################################
+
+	Parallel.For(0, 10, i => {
+    		Console.WriteLine($"Thread {Thread.CurrentThread.ManagedThreadId} processando índice {i}");
+	})
+
+ou
+
+	var tasks = new Task[5];
+
+	for (int i = 0; i < 5; i++) {
+
+    		int index = i;
+    		tasks[i] = Task.Run(() => {
+        		Console.WriteLine($"Tarefa {index} executada na thread {Thread.CurrentThread.ManagedThreadId}");
+    		});
+	}
+
+	Task.WaitAll(tasks); // Aguarda todas as tarefas terminarem.
+
+pag108

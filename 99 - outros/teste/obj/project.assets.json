@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\CSharp\\aula12\\Singleton\\Singleton.csproj",
-      "projectName": "Singleton",
-      "projectPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula12\\Singleton\\Singleton.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\CSharp\\teste\\teste.csproj",
+      "projectName": "teste",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\CSharp\\teste\\teste.csproj",
       "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula12\\Singleton\\obj\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\CSharp\\teste\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config"

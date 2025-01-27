@@ -1,7 +1,7 @@
 public class ArgentinaDismissalProcess : DismissalProcess
 {
-    public override string Title => "Despido de Empleados";
-    public override void Apply(DismissalArgs args)
+    public override string Title => "Despido de Empleados"; // titulo do processo
+    public override void Apply(DismissalArgs args) // aplicando personalização, ar: compania e empregado
     {
         args.Company.Money -= 3 * args.Employe.Wage;
     }
@@ -22,7 +22,7 @@ public class ArgentinaContractProcess : ContractProcess
         args.Company.Money += 3 * args.Employe.Wage;
     }
 }
-public class ArgentinaProcessFactory : IProcessFactory
+public class ArgentinaProcessFactory : IProcessFactory // retorna novas instancias
 {
     public ContractProcess CreateContractProcess()
         => new ArgentinaContractProcess();
