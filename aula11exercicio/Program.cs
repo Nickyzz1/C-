@@ -1,77 +1,54 @@
-﻿using System.Text;
+﻿using System;
 using System.Reflection;
-using System.Text.Json.Nodes;
-using System.Collections;
+using System.Text.Json;
 
-Funcionario funcionario = new Funcionario(1, "Nini", 100_000);
-var obj = funcionario.GetType().GetProperties();
-
-Type myType = typeof(Funcionario);
-Type[] myTypeArray = new Type[2];
-
-myTypeArray.SetValue(typeof(int), 0);
-myTypeArray.SetValue(typeof(int),1);
-
-var myPropertyInfo = myType.GetProperties();
-
-foreach (var item in myPropertyInfo)
+public class Funcionario
 {
-    if(item.CanRead)
-    System.Console.WriteLine($"        Item : {item.Attributes}\n        ");
-}
+    public int Id { get; set; }
+    public string Nome { get; set; }
+    public double Salario { get; set; }
 
-System.Console.WriteLine("{");
-
-
-var empresa = new Empresa(
-    "Bosch",
-    new Funcionario(1, "Fábio", 100_000), [
-    new Funcionario(2, "Don", 50_000),
-    new Funcionario(3, "Queila", 20_000),
-    new Funcionario(4, "Trevis", 600),
-    ]
-);
-
-var json = empresa.ToJson();
-Console.WriteLine(json);
-
-public record Funcionario(
-    int Id,
-    string Nome,
-    decimal Salario
-);
-public record Empresa(
-    string Nome,
-    Funcionario Chefe,
-    List<Funcionario> Funcionarios
-);
-
-public static class Converter
-{
-    // public static Task<string> ToJsonAsync<T>(this T obj)
-    // {
-       
-    // }
-
-    public static string ToJson<T>(this T obj)
+    public Funcionario(int id, string nome, double salario)
     {
-        var sb = new StringBuilder();
-        AppendObject(obj, sb);
-        return sb.ToString();
-    }
-
-    private static void AppendObject<T>(T? obj, StringBuilder sb)
-    {
-        throw new NotImplementedException();
-    }
-
-    private static void toJson<T>(T obj, StringBuilder sb)
-    {
-	
+        Id = id;
+        Nome = nome;
+        Salario = salario;
     }
 }
 
+class Program
+{
+    static void Main(string[] args)
+    {
+        Funcionario funcionario = new Funcionario(1, "Nini", 100_000);
+        Type myType = typeof(Funcionario);
 
-// um objeto e tranformar num json emnum arquivo reflexãoi
-// json de outrso json
-// json de listas
+        // obtém as propriedades da classe
+        var myPropertyInfo = myType.GetProperties();
+
+        Console.WriteLine("{");
+        for (int i = 0; i < myPropertyInfo.Length; i++)
+        {
+            var item = myPropertyInfo[i];
+            if (item.CanRead)
+            {
+                // pega o valor da propriedade do objeto
+                var value = item.GetValue(funcionario);
+                // converte o objt para o formato em json
+                string jsonValue = JsonSerializer.Serialize(value); 
+
+                // Adiciona vírgula entre os itens, exceto no último
+                Console.Write($"    \"{item.Name}\" : {jsonValue}");
+                if (i < myPropertyInfo.Length - 1)
+                {
+                    Console.WriteLine(",");
+                }
+                else
+                {
+                    Console.WriteLine();
+                }
+            }
+        }
+        Console.WriteLine("}");
+    }
+}

@@ -1,0 +1,282 @@
+================ PADRÕES DE PROJETO ================
+
+SOLID
+
+S: Mantenha uma única responsabilidade por classe.
+O: Permita a extensão de funcionalidades sem alterar o código existente.
+L: Substitua a superclasse pela subclasse sem problemas.
+I: Mantenha interfaces pequenas e específicas.
+D: Dependa de abstrações, nunca de implementações concretas.
+Esses princípios ajudam a criar um código mais modular, reutilizável e manutenível!
+
+1. S - Single Responsibility Principle (Princípio da Responsabilidade Única)
+Uma classe deve ter uma única responsabilidade.
+
+Cada classe deve ter apenas um motivo para mudar.
+Uma classe não deve misturar responsabilidades (ex.: lógica de negócio + manipulação de arquivos).
+Exemplo (Quebrando o princípio):
+csharp
+Copiar
+Editar
+public class Relatorio
+{
+    public void GerarRelatorio() { /* Lógica */ }
+    public void SalvarRelatorioNoDisco() { /* Manipulação de arquivos */ }
+}
+Correção:
+csharp
+Copiar
+Editar
+public class GeradorRelatorio
+{
+    public void GerarRelatorio() { /* Lógica */ }
+}
+
+public class GravadorRelatorio
+{
+    public void SalvarRelatorioNoDisco() { /* Manipulação de arquivos */ }
+}
+2. O - Open/Closed Principle (Princípio Aberto/Fechado)
+O código deve estar aberto para extensão, mas fechado para modificação.
+
+Você deve ser capaz de adicionar novos comportamentos ao sistema sem modificar o código existente.
+Exemplo (Quebrando o princípio):
+csharp
+Copiar
+Editar
+public class CalculadoraDesconto
+{
+    public decimal Calcular(string tipoCliente)
+    {
+        if (tipoCliente == "VIP")
+            return 0.2m;
+        else if (tipoCliente == "Regular")
+            return 0.1m;
+
+        return 0.0m;
+    }
+}
+Correção (com Polimorfismo):
+csharp
+Copiar
+Editar
+public interface IDesconto
+{
+    decimal Calcular();
+}
+
+public class DescontoVIP : IDesconto
+{
+    public decimal Calcular() => 0.2m;
+}
+
+public class DescontoRegular : IDesconto
+{
+    public decimal Calcular() => 0.1m;
+}
+Agora, adicionar um novo tipo de desconto não requer alterar o código existente.
+
+3. L - Liskov Substitution Principle (Princípio da Substituição de Liskov)
+Uma subclasse deve ser substituível por sua superclasse sem alterar o comportamento do programa.
+
+Um objeto de uma classe derivada deve ser capaz de substituir um objeto da classe base sem problemas.
+Exemplo (Quebrando o princípio):
+csharp
+Copiar
+Editar
+public class Ave
+{
+    public virtual void Voar() { }
+}
+
+public class Pinguim : Ave
+{
+    public override void Voar()
+    {
+        throw new NotImplementedException("Pinguins não voam!");
+    }
+}
+Correção:
+csharp
+Copiar
+Editar
+public abstract class Ave { }
+
+public class AveQueVoa : Ave
+{
+    public void Voar() { /* Lógica de voo */ }
+}
+
+public class Pinguim : Ave
+{
+    // Não implementa métodos que não fazem sentido
+}
+4. I - Interface Segregation Principle (Princípio da Segregação de Interface)
+Uma classe não deve ser forçada a implementar interfaces que não utiliza.
+
+Divida interfaces grandes em interfaces menores e mais específicas.
+Exemplo (Quebrando o princípio):
+csharp
+Copiar
+Editar
+public interface IFuncionario
+{
+    void Trabalhar();
+    void GerenciarProjetos();
+}
+Uma classe que não gerencia projetos é forçada a implementar GerenciarProjetos.
+
+Correção:
+csharp
+Copiar
+Editar
+public interface ITrabalhador
+{
+    void Trabalhar();
+}
+
+public interface IGerente
+{
+    void GerenciarProjetos();
+}
+Agora, você pode ter classes mais específicas:
+
+csharp
+Copiar
+Editar
+public class Desenvolvedor : ITrabalhador
+{
+    public void Trabalhar() { /* Lógica */ }
+}
+5. D - Dependency Inversion Principle (Princípio da Inversão de Dependência)
+Dependa de abstrações, não de implementações.
+
+Classes de alto nível não devem depender de classes de baixo nível diretamente. Ambas devem depender de abstrações (interfaces ou classes abstratas).
+Exemplo (Quebrando o princípio):
+csharp
+Copiar
+Editar
+public class EmailService
+{
+    public void EnviarEmail(string mensagem) { /* Lógica */ }
+}
+
+public class Notificador
+{
+    private EmailService _emailService = new EmailService();
+
+    public void Notificar(string mensagem)
+    {
+        _emailService.EnviarEmail(mensagem);
+    }
+}
+Correção (com abstração):
+csharp
+Copiar
+Editar
+public interface INotificador
+{
+    void Notificar(string mensagem);
+}
+
+public class EmailService : INotificador
+{
+    public void Notificar(string mensagem) { /* Lógica */ }
+}
+
+public class Notificador
+{
+    private readonly INotificador _notificador;
+
+    public Notificador(INotificador notificador)
+    {
+        _notificador = notificador;
+    }
+
+    public void Notificar(string mensagem)
+    {
+        _notificador.Notificar(mensagem);
+    }
+}
+Agora, podemos injetar diferentes implementações de notificação, como SMS ou Push.
+
+========================================================= / =========================================================
+
+Diferença entre claasses concretas e abstratas:
+
+
+Classes concretas são classes que podem ser instanciadas diretamente. Elas geralmente contêm implementações completas de métodos e atributos que definem um comportamento específico. Em oposição às classes abstratas, que servem como "esqueletos" e não podem ser instanciadas diretamente, as classes concretas possuem todos os detalhes necessários para criar objetos funcionais.
+
+========================================================= / =========================================================
+
+singleton : variavel dela mesma porem estática?
+singletoon: https://refactoring.guru/pt-br/design-patterns/singleton
+
+resumo: uma classe tem apenas uma instância e precisa ter um ponto de acesso global para essa instância
+
+- Controle de acesso a recursos compartilhados:
+
+Por exemplo, uma única instância de conexão a um banco de dados, onde múltiplas partes do sistema precisam acessá-la, mas você não quer criar várias conexões.
+Configuração global:)
+
+- Gerenciar configurações de um sistema centralizadas em uma única instância.
+Controle de estados globais:
+
+Por exemplo, um logger que coleta logs de várias partes da aplicação.
+Características principais do Singleton:
+Única instância:
+
+- Apenas um objeto da classe é criado.
+Acesso controlado:
+
+O objeto é acessado por meio de um método público estático, geralmente chamado GetInstance() ou algo similar.
+Construtor privado:
+
+- O construtor da classe é privado para evitar que o objeto seja criado diretamente usando new.
+
+- Aplicabilidade
+Utilize o padrão Singleton quando uma classe em seu programa deve ter apenas uma instância disponível para todos seus clientes; por exemplo, um objeto de base de dados único compartilhado por diferentes partes do programa.
+- vióla o principio da responsabilidade única
+- mantém a referencia estática global
+
+Exemplos:
+- clasee game
+- classe banco de dados
+- classe configurações da aplicação
+
+como definir o singletoon: padrão de projeto, pq vc tem controle de tds os recursos de instancia, tem todas as vantagens de oider usae o projeto e alida a possiblidade d a variavel global, o contrutor cria o objeto ncompleto, desde remoçãod e dados e referência
+
+================================================================ / =========================================================
+
+builder: Builders diferentes executam a mesma tarefa de várias maneiras.
+https://refactoring.guru/pt-br/design-patterns/builder
+
+O padrão Builder sugere que você extraia o código de construção do objeto para fora de sua própria classe e mova ele para objetos separados chamados builders. “Builder” significa
+
+O padrão organiza a construção de objetos em uma série de etapas (construirParedes, construirPorta, etc.). Para criar um objeto você executa uma série de etapas em um objeto builder. A parte importante é que você não precisa chamar todas as etapas. Você chama apenas aquelas etapas que são necessárias para a produção de uma configuração específica de um objeto.
+
+Nesse caso, você pode criar diferentes classes construturas que implementam as mesmas etapas de construção, mas de maneira diferente. Então você pode usar esses builders no processo de construção (i.e, um pedido ordenado de chamadas para as etapas de construção) para produzir diferentes tipos de objetos.
+
+Builders diferentes executam a mesma tarefa de várias maneiras.
+
+exemplo: montar carros
+
+================================================================ / =========================================================
+
+Abstract factory : permite que você produza famílias de objetos relacionados sem ter que especificar suas classes concretas.
+
+
+primeira coisa que o padrão Abstract Factory sugere é declarar explicitamente interfaces para cada produto distinto da família de produtos (ex: cadeira, sofá ou mesa de centro). Então você pode fazer todas as variantes dos produtos seguirem essas interfaces. Por exemplo, todas as variantes de cadeira podem implementar a interface Cadeira; todas as variantes de mesa de centro podem implementar a interface MesaDeCentro, e assim por diante.
+
+O próximo passo é declarar a fábrica abstrata—uma interface com uma lista de métodos de criação para todos os produtos que fazem parte da família de produtos (por exemplo, criarCadeira, criarSofá e criarMesaDeCentro). Esses métodos devem retornar tipos abstratos de produtos representados pelas interfaces que extraímos previamente: Cadeira, Sofá, MesaDeCentro e assim por diante.
+
+
+apicações: fazer coisas em sistemas operacionais diferentes
+
+== herança é útil para reduzir ifs e elses ==
+varias entidades e varias implementações
+
+================================================================ / =========================================================
+
+
+

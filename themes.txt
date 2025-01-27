@@ -5,3 +5,4 @@ dracula highlight
 beautiful dracula 
 eclipse lunar
 lunar dark theme
+visão computacional ==> ia que identifica imagem
