@@ -1,0 +1,3 @@
+andam aleatório e quando um encosta no outro uam delas segue e a outra foge
+
+A palavra-chave dynamic em C# significa que o tipo da variável será resolvido em tempo de execução, em vez de ser definido em tempo de compilação.
