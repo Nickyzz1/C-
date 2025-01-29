@@ -4,32 +4,20 @@ using static Radiance.Utils;
 Character puca = new Character(red);
 Character garu = new Character(blue);
 
+puca.charc2 = garu;
+garu.charc2 = puca;
+
 puca.SetState(new WaitingState());
 garu.SetState(new WaitingState());
+
+garu.X = 1000;
+garu.Y = 500;
 
 Window.OnFrame += () =>
 {
     puca.Act();
     garu.Act();
 
-    puca.char2 = garu;
-    garu.char2 = puca;
-
-    //
-
-    // float tolerance = 5;
-    // if (Math.Abs(puca.X - garu.X) <= tolerance && Math.Abs(puca.Y - garu.Y) <= tolerance)
-    // {
-    //     bool founded = false;
-
-    //     while(!founded) {
-    //         garu.SetState(new MovingState((int)puca.X, (int) puca.Y));
-
-    //         if (Math.Abs(puca.X - garu.X) <= tolerance && Math.Abs(puca.Y - garu.Y) <= tolerance) {
-    //             founded = true;
-    //         }
-    //     }
-    // }
 };
 
 Window.OnRender += () =>
@@ -39,4 +27,3 @@ Window.OnRender += () =>
 };
 Window.CloseOn(Input.Escape);
 Window.Open();
-

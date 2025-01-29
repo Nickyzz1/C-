@@ -1,0 +1,15 @@
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\aula 13 - Padrões de projeto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\aula 13 - Padrões de projeto.AssemblyInfoInputs.cache
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\aula 13 - Padrões de projeto.AssemblyInfo.cs
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\aula 13 - Padrões de projeto.csproj.CoreCompileInputs.cache
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\aula 13 - Padrões de projeto.sourcelink.json
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\bin\Debug\net9.0\aula 13 - Padrões de projeto.exe
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\bin\Debug\net9.0\aula 13 - Padrões de projeto.deps.json
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\bin\Debug\net9.0\aula 13 - Padrões de projeto.runtimeconfig.json
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\bin\Debug\net9.0\aula 13 - Padrões de projeto.dll
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\bin\Debug\net9.0\aula 13 - Padrões de projeto.pdb
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\aula 13 - Padrões de projeto.dll
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\refint\aula 13 - Padrões de projeto.dll
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\aula 13 - Padrões de projeto.pdb
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\aula 13 - Padrões de projeto.genruntimeconfig.cache
+C:\Users\disrct\Desktop\CSharp\aula 13 - Padrões de projeto\obj\Debug\net9.0\ref\aula 13 - Padrões de projeto.dll

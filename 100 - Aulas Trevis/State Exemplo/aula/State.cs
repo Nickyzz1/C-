@@ -6,5 +6,4 @@ public abstract class State
 
     public void SetContext(Character character)
         => this.character = character;
-
 }

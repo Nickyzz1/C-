@@ -165,3 +165,49 @@ ou
 	Task.WaitAll(tasks); // Aguarda todas as tarefas terminarem.
 
 pag108
+
+
+== STRATEGY
+
+- MANUAL, O Strategy permite que criemos um contexto que pode mudar o seu comportamento conforme você define
+as estratégias dentro da classe.
+
+=== STATE 
+
+State é uma evolução do Strategy. A diferença é que o estado, diferente da estratégia, é apenas um estado
+que controla o contexto e pode decidir os próximos estados.Não e manual, ele pode escolher o próximo estado
+
+== FLyweight
+
+- Flyweigth é um padrão criacional que nos permite reduzir a repetição de objetos pequenos na memória, por
+exemplo, exceções. Ele lembra o Singleton na sua estrutura, mas permite que o objeto existe muitas vezes.
+A ideia é reduzir os gastos de memória.
+
+	- Para onde vai o estado extrínseco então? Algumas classes ainda devem ser capazes de armazená-lo, certo? Na maioria dos casos, ele é movido para o objeto contêiner, que agrega os 	objetos antes de aplicarmos o padrão.
+
+	- Uma solução mais elegante é criar uma classe de contexto separada que armazenaria o estado extrínseco junto com a referência para o objeto flyweight. Essa abordagem precisaria apenas 	de uma única array na classe contêiner.
+
+	- Calma aí! Não vamos precisar de tantos objetos contextuais como tínhamos no começo? Tecnicamente, sim, mas nesse caso, esses objetos são muito menores que antes. Os campos mais 	pesados foram movidos para alguns poucos objetos flyweight. Agora, milhares de objetos contextuais podem reutilizar um único objeto flyweight pesado ao invés de armazenar milhares de 	cópias de seus dados.
+
+== facade
+
+- uma classe onde vc colaca uma operação cpompleta. Digamos que vcc vai usar uama biblioteca poara criar um PDF, mas tem tres funlçoes que precisam ser implementadas, vc pode fazer uma classe que vai juntrar tudo isso para que vc use melhor! 
+
+== DECORATOR
+
+- exemplos na pasta
+
+== composite
+
+- como se tivessem varios caras sendo decorados
+
+ exemplo, imagine que você tem dois tipos de objetos: Produtos e Caixas. Uma Caixa pode conter diversos Produtos bem como um número de Caixas menores. Essas Caixas menores também podem ter alguns Produtos ou até mesmo Caixas menores que elas, e assim em diante.
+
+Digamos que você decida criar um sistema de pedidos que usa essas classes. Os pedidos podem conter produtos simples sem qualquer compartimento, bem como caixas recheadas com produtos... e outras caixas. Como você faria para determinar o preço total desse pedido?
+
+
+O padrão Composite sugere que você trabalhe com Produtos e Caixas através de uma interface comum que declara um método para a contagem do preço total.
+
+
+https://refactoring.guru/pt-br/design-patterns/composite
+

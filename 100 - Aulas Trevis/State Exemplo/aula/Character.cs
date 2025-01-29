@@ -1,23 +1,24 @@
 using System.Xml.Serialization;
 using Radiance;
 using Radiance.Bufferings;
+using Radiance.Primitives;
 using static Radiance.Utils;
 
-public class Character(vec4 myColor)
+public class Character(Vec4 myColor)
 {
-    public Character? char2{get;set;}
 
-    public vec4 persnColor = myColor;
+    public Character? charc2  = null;
+
+    public Vec4 personColor = myColor;
 
     dynamic charRender = render((vec2 dx) =>
     {
         zoom(40);
-        move(dx); // vetor de coordenadas
+        move(dx);
         color = myColor;
         fill();
 
     });
-
     Polygon polygon = Polygons.Circle;
     public void Draw()
     {
@@ -37,4 +38,3 @@ public class Character(vec4 myColor)
     public void Act()
         => state?.Act();
 }
-
