@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula2\\aula2.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\CSharp\\aula2\\aula2.csproj": {}
   },
   "projects": {
-    "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula2\\aula2.csproj": {
+    "C:\\Users\\disrct\\Desktop\\CSharp\\aula2\\aula2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula2\\aula2.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\CSharp\\aula2\\aula2.csproj",
         "projectName": "aula2",
-        "projectPath": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula2\\aula2.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula2\\aula2.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\5 - Aprendizes\\2 - Desenvolvimento de Sistemas\\5 - Soluções Digitais 2024\\Nicolle Siqueira\\19 - c#\\aula2\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\disrct\\Desktop\\CSharp\\aula7\\aula7.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\CSharp\\aula7 - Queries\\aula7.csproj": {}
   },
   "projects": {
-    "C:\\Users\\disrct\\Desktop\\CSharp\\aula7\\aula7.csproj": {
+    "C:\\Users\\disrct\\Desktop\\CSharp\\aula7 - Queries\\aula7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\CSharp\\aula7\\aula7.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\CSharp\\aula7 - Queries\\aula7.csproj",
         "projectName": "aula7",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula7\\aula7.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula7 - Queries\\aula7.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula7\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\CSharp\\aula7 - Queries\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config"
